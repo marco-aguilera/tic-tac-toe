@@ -7,10 +7,12 @@ const tictactoe = () => {
   return (
     
   //<h1>Tic Tac Toe</h1> 
+  
+  //Setting up the table grid for the game 3x3
   <div> 
-    <table>
+    <table> 
       <tbody>
-          <tr>
+          <tr> 
             <Cell/>
             <Cell/>
             <Cell/>
