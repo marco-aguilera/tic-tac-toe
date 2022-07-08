@@ -10,6 +10,9 @@ const tictactoe = () => {
   
   //Setting up the table grid for the game 3x3
 
+
+
+
   
   <div> 
     <table> 
