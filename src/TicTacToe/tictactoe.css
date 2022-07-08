@@ -1,5 +1,9 @@
+.container{
+    display: flex;
+    justify-content: center; /* Puts the flex container in the center */
+}
 table td {
     border: 1px solid gray;
     width: 100px;
     height:100px;
-}
+} 
