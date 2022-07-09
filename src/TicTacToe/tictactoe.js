@@ -2,7 +2,8 @@ import React from 'react'
 import './tictactoe.css'
 
 const tictactoe = () => {
-
+  const [turn, setTurn] = useState('x');
+  
   const handleClick = (num) => { //adding a click for the individual cells 
     alert(num);
   }
