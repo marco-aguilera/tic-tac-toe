@@ -4,7 +4,9 @@ import './tictactoe.css'
 const TicTacToe = () => {  //React component names must start with an uppercase letter.
 
   const [turn, setTurn] = useState('x'); // tracking alternating turns
-  const [cells, setCells] = useState(Array(9).fill(''))
+  const [cells, setCells] = useState(Array(9).fill(''));
+  const [winner, setWinner] = useState();
+
 
   const handleClick = (num) => { //adding a click for the individual cells 
    //alert(num); //alerts which number you are on in the cell (Not needed)
@@ -30,7 +32,23 @@ const TicTacToe = () => {  //React component names must start with an uppercase 
         ],
       };
 
-      
+       for (let combo in combos) {
+        combos[combo].forEach((pattern) => {
+          console.log(pattern);
+            if(
+              squares[pattern[0]] === '' ||
+              squares[pattern[1]] === '' ||
+              squares[pattern[2]] === ''
+            ) {
+              //do nothing
+            } else if (
+              squares[pattern[0]] === squares[pattern[1]] &&
+              squares[pattern[1]] === squares[pattern[2]]
+            ){
+              setWinner(squares[pattern[0]]);
+            }
+        });
+       }
 
     } 
 
@@ -51,6 +69,11 @@ const TicTacToe = () => {  //React component names must start with an uppercase 
     setCells(squares); //update the state variable and keep that item o or x inside of the array
 
   };
+
+  const handleRestart = () => {
+    setWinner(null);
+    setCells(Array(9).fill(''));
+  }
 
   const Cell = ({num}) => { //num is being passed in a a prop so we need to add brackets
     return <td onClick={() => handleClick (num)}>{cells[num]}</td> //added a onclick func for the cells 
@@ -79,6 +102,12 @@ const TicTacToe = () => {  //React component names must start with an uppercase 
           </tr>
       </tbody>
     </table>
+    {winner && (
+      <>
+      <p>{winner} is the winner!</p>
+      <button onClick={() => handleRestart()}>Play Again!</button>
+      </>
+    )}
   </div>
     
 
