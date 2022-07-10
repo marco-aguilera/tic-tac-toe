@@ -4,8 +4,8 @@ import './tictactoe.css'
 const TicTacToe = () => {  //React component names must start with an uppercase letter.
 
   const [turn, setTurn] = useState('x'); // tracking alternating turns
-  const [cells, setCells] = useState(Array(9).fill(''));
-  const [winner, setWinner] = useState();
+  const [cells, setCells] = useState(Array(9).fill('')); //array with the 9 cells for the game 
+  const [winner, setWinner] = useState(); //setting the winner 
 
 
   const handleClick = (num) => { //adding a click for the individual cells 
@@ -57,6 +57,7 @@ const TicTacToe = () => {  //React component names must start with an uppercase 
       return;
     }
 
+    /* Starts at X and then alternates turns after the other player has completed move */
     if(turn === 'x') {
       squares[num] = 'x';
       setTurn('o');
@@ -71,8 +72,8 @@ const TicTacToe = () => {  //React component names must start with an uppercase 
   };
 
   const handleRestart = () => {
-    setWinner(null);
-    setCells(Array(9).fill(''));
+    setWinner(null); //reseting game once the game has finished 
+    setCells(Array(9).fill('')); //empting the array of cells
   }
 
   const Cell = ({num}) => { //num is being passed in a a prop so we need to add brackets
@@ -110,7 +111,6 @@ const TicTacToe = () => {  //React component names must start with an uppercase 
     )}
   </div>
     
-
   )
 }
 
