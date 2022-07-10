@@ -1,12 +1,20 @@
 import React, { useState } from 'react'
 import './tictactoe.css'
 
-const tictactoe = () => {
-  const [turn, setTurn] = useState('x');
+const TicTacToe = () => {  //React component names must start with an uppercase letter.
+
+  const [turn, setTurn] = useState('x'); // tracking alternating turns
 
   const handleClick = (num) => { //adding a click for the individual cells 
-    alert(num);
-  }
+   alert(num);
+
+    if(turn === 'x') {
+      setTurn('o');
+    } else {
+      setTurn('x');
+    }
+
+  };
 
   const Cell = ({num}) => { //num is being passed in a a prop so we need to add brackets
     return <td onClick={() => handleClick (num)}>-</td> //added a onclick func for the cells 
@@ -16,6 +24,7 @@ const tictactoe = () => {
   //Setting up the table grid for the game 3x3
   <div className='container' > 
     <table> 
+      Turn: {turn}
       <tbody>
           <tr> 
             <Cell num={0} /> 
@@ -40,4 +49,4 @@ const tictactoe = () => {
   )
 }
 
-export default tictactoe
+export default TicTacToe
