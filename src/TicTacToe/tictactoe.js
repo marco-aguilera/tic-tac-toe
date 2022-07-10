@@ -57,7 +57,7 @@ const TicTacToe = () => {  //React component names must start with an uppercase 
       return;
     }
 
-    /* Starts at X and then alternates turns after the other player has completed move */
+    /* alternates turns after the other player has completed move */
     if(turn === 'x') {
       squares[num] = 'x';
       setTurn('o');
